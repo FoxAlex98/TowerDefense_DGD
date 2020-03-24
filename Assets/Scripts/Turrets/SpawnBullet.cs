@@ -15,7 +15,7 @@ public class SpawnBullet : MonoBehaviour {
     {
         while (true)
         {
-            //Debug.Log("spawn bullet");
+            Debug.Log("spawn bullet");
             yield return new WaitForSeconds(0.5f);
         }
         

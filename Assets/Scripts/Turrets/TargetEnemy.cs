@@ -35,7 +35,7 @@ public class TargetEnemy : MonoBehaviour {
         {
             target = other.gameObject;
             Debug.Log("Ho incontrato un nemico");
-            GetComponent<SpawnBullet>().StartCoroutine("Shoot");
+            GetComponent<MachineGun>().StartCoroutine("Shoot");
         }
     }
 
@@ -45,7 +45,7 @@ public class TargetEnemy : MonoBehaviour {
         {
             target = null;
             turret.transform.rotation = rotation;
-            GetComponent<SpawnBullet>().StopCoroutine("Shoot");
+            GetComponent<MachineGun>().StopAllCoroutines();
         }
     }
 }

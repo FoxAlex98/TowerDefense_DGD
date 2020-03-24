@@ -10,12 +10,5 @@ public class Bullet : MonoBehaviour
         transform.rotation = spawnPoint.rotation;
         gameObject.SetActive(true);
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.layer == 8)
-        {
-            Debug.Log("ho colpito un nemico");
-        }
-    }
+    
 }

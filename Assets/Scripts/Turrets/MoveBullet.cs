@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour {
+public class MoveBullet : MonoBehaviour
+{
 
     [SerializeField] float speed;
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
-	}
+        //transform.Rotate(Vector3.up * speed * Time.deltaTime);
+    }
 }
