@@ -17,9 +17,14 @@ public class TargetEnemy : MonoBehaviour {
 
     private void Update()
     {
-        if (target != null)
+        if(target != null)
         {
-            turret.transform.LookAt(target.transform.position);
+            if ((target.activeInHierarchy))
+            {
+                turret.transform.LookAt(target.transform.position);
+            }
+            else
+                Deactivate();
         }
     }
 
@@ -43,9 +48,15 @@ public class TargetEnemy : MonoBehaviour {
     {
         if (other.gameObject.layer == 8)
         {
-            target = null;
-            turret.transform.rotation = rotation;
-            GetComponent<MachineGun>().StopAllCoroutines();
+            Deactivate();
         }
+    }
+
+    private void Deactivate()
+    {
+        Debug.Log("Deactivate");
+        target = null;
+        turret.transform.rotation = rotation;
+        GetComponent<MachineGun>().StopAllCoroutines();
     }
 }

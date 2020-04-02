@@ -6,9 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public void Spawn(Transform spawnPoint)
     {
-        transform.position = spawnPoint.position;
-        transform.rotation = spawnPoint.rotation;
-        gameObject.SetActive(true);
+        transform.Spawn(spawnPoint);//sto chiamando lo spawn che sta nella classe estesa
     }
     
 }

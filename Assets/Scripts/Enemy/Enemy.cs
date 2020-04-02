@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public void Spawn(Transform spawnPoint)
+    private float health;//vita corrente
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int coins;
+
+    private void OnEnable()//viene chiamato automaticamente quando il GameObject viene attivato, ogni volta che viene attivato
     {
-        transform.position = spawnPoint.position;
-        transform.rotation = spawnPoint.rotation;
-        gameObject.SetActive(true);
+        health = maxHealth;
     }
 
-    void OnTriggerEnter(Collider other)
+    public void Hit(int damage)
     {
-        if (other.gameObject.layer == 10)
+        health -= damage;
+        Debug.Log("HIT " + health);
+        if (health <= 0)
         {
-            Debug.Log("AH SONO STATO COLPITO ");
+            CoinManager.instance.AddCoins(coins);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
+    }
+
+    public void Spawn(Transform spawnPoint)
+    {
+        transform.Spawn(spawnPoint);
+    }
+
+    private void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
     }
 }

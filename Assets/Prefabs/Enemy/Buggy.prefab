@@ -22,10 +22,9 @@ GameObject:
   - component: {fileID: 33355103154530738}
   - component: {fileID: 23014883006346786}
   - component: {fileID: 95385359925685020}
-  - component: {fileID: 114308072209673720}
-  - component: {fileID: 114608062223233560}
   - component: {fileID: 65592763840316394}
   - component: {fileID: 54788721842856692}
+  - component: {fileID: 114176389154998604}
   m_Layer: 8
   m_Name: Buggy
   m_TagString: Buggy
@@ -131,7 +130,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114308072209673720
+--- !u!114 &114176389154998604
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -139,18 +138,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1058593382913404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19fa0e1a4a281349a97f6d4bc28543c, type: 3}
+  m_Script: {fileID: 11500000, guid: ecec6d40a4806cf4e9901853ffe9adcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  coins: 5
   speed: 5
---- !u!114 &114608062223233560
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1058593382913404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c69a6dac1bdd7ba4a91becd77dba0a1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

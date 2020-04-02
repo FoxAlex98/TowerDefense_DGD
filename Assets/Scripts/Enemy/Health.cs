@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineGun : ShootingTurret {
+public class Health : MonoBehaviour {
 
     
 }
