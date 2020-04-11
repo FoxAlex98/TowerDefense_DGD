@@ -13,6 +13,6 @@ public class Buggy : GroundEnemy {
     protected override void Move()
     {
         base.Move();
-        transform.Rotate(0, 0, speed * Time.deltaTime);
+        //transform.Rotate(0, 0, speed * Time.deltaTime);
     }
 }

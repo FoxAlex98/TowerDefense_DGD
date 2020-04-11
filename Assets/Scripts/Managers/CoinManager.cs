@@ -10,9 +10,19 @@ public class CoinManager : MonoBehaviour {
 	void Awake () {
         instance = this; //instance
 	}
-	
-	public void AddCoins(int coinToAdd)
+
+    void Start()
+    {
+        coins = SaveGame.GetCoins();        
+    }
+
+    public void AddCoins(int coinToAdd)
     {
         coins += coinToAdd;
+    }
+
+    public void SaveCoins()
+    {
+        SaveGame.SaveCoins(coins);
     }
 }

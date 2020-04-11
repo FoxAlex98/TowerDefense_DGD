@@ -141,6 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecec6d40a4806cf4e9901853ffe9adcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 3
   coins: 5
+  checkPoints: []
+  target: {fileID: 0}
+  strength: 0
+  rotationSpeed: 2
   speed: 5
