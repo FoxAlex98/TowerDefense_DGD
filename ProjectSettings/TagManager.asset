@@ -9,6 +9,7 @@ TagManager:
   - Buggy
   - Boss
   - Ammo
+  - End
   layers:
   - Default
   - TransparentFX

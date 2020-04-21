@@ -22,13 +22,22 @@ public class Enemy : MonoBehaviour {
     {
         if(other.gameObject.layer == 11)
         {
-            targetIndex++;//controllo qua
-            target = checkPoints[targetIndex];
+            if(other.gameObject.tag != "End")
+            {
+                targetIndex++;
+                target = checkPoints[targetIndex];
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                PlayerManager.instance.TakeDamage(strength);
+            }
+            
             //StartCoroutine("RotateToTarget");
         }
     }
 
-    public void TakeCheckPoints()
+    public virtual void TakeCheckPoints()
     {
         GameObject aux = GameObject.Find("CheckPoints");
         checkPoints = new Transform[aux.transform.childCount];
@@ -44,7 +53,7 @@ public class Enemy : MonoBehaviour {
     {
         Vector3 direction;
         Quaternion lookRotation;
-        float t = 0;
+        //float t = 0;
         while (true)
         {
             direction = target.position - transform.position;
@@ -68,7 +77,7 @@ public class Enemy : MonoBehaviour {
         */
     }
 
-    private void OnEnable()//viene chiamato automaticamente quando il GameObject viene attivato, ogni volta che viene attivato
+    protected virtual void OnEnable()//viene chiamato automaticamente quando il GameObject viene attivato, ogni volta che viene attivato
     {
         health = maxHealth;
     }
@@ -88,6 +97,12 @@ public class Enemy : MonoBehaviour {
     public void Spawn(Transform spawnPoint)
     {
         transform.Spawn(spawnPoint);
+    }
+
+    public void Spawn(Transform spawnPoint, float y)//per gli elementi aerei
+    {
+        transform.Spawn(spawnPoint);
+        transform.Translate(Vector3.up * y);
     }
 
     private void OnBecameInvisible()
