@@ -194,11 +194,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db717c50e7e55748892b3ef0e6fd983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1058593382913404, guid: 4365f4bc7c7547a47b72079dec1a03ca, type: 2}
+  enemy:
+  - {fileID: 1058593382913404, guid: 4365f4bc7c7547a47b72079dec1a03ca, type: 2}
+  - {fileID: 1984115554410972, guid: 5d79c31f08cab56419c8e000edd01da8, type: 2}
   enemyList: []
   enemyLenght: 50
   spawnPoint: {fileID: 345024644}
   timeToSpawn: 5
+  yFlyin: 3
 --- !u!1 &217824898
 GameObject:
   m_ObjectHideFlags: 0
