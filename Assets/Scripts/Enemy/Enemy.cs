@@ -22,8 +22,17 @@ public class Enemy : MonoBehaviour {
     {
         if(other.gameObject.layer == 11)
         {
-            targetIndex++;//controllo qua
-            target = checkPoints[targetIndex];
+            if(other.gameObject.tag != "End")
+            {
+                targetIndex++;
+                target = checkPoints[targetIndex];
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                PlayerManager.instance.TakeDamage(strength);
+            }
+            
             //StartCoroutine("RotateToTarget");
         }
     }

@@ -145,6 +145,6 @@ MonoBehaviour:
   coins: 5
   checkPoints: []
   target: {fileID: 0}
-  strength: 0
+  strength: 5
   rotationSpeed: 2
   speed: 5
