@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    private float health;//vita corrente
-    [SerializeField] private int maxHealth;
+    protected float health;//vita corrente
+    [SerializeField] protected int maxHealth;
     [SerializeField] private int coins;
     [SerializeField] protected Transform[] checkPoints;
     [SerializeField] protected Transform target;
     [SerializeField] protected float strength, rotationSpeed;
     private int targetIndex;
 
-    protected virtual void Start()
+    void Awake()
     {
         TakeCheckPoints();
-        StartCoroutine("RotateToTarget");//sempre valida fino alla fine del tragitto
     }
 
     void OnTriggerEnter(Collider other)
@@ -77,9 +76,17 @@ public class Enemy : MonoBehaviour {
         */
     }
 
-    protected virtual void OnEnable()//viene chiamato automaticamente quando il GameObject viene attivato, ogni volta che viene attivato
+    public virtual void Reset()
     {
         health = maxHealth;
+        target = checkPoints[0];
+        targetIndex = 0;
+        StartCoroutine("RotateToTarget");
+    }
+
+    protected virtual void OnEnable()//viene chiamato automaticamente quando il GameObject viene attivato, ogni volta che viene attivato
+    {
+        Reset();        
     }
 
     public void Hit(int damage)

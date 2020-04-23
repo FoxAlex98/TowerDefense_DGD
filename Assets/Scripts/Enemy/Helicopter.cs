@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class Helicopter : FlyingEnemy {
 
-    protected override void Start()
-    {
-        base.Start();
-    }
 }

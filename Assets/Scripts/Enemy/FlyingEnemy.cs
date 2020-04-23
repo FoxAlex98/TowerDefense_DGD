@@ -7,12 +7,7 @@ public class FlyingEnemy : Enemy {
     float t = 0;
     [SerializeField] protected float timeToReach;
     
-
-    protected override void Start()
-    {
-        StartCoroutine("MoveHelicopter");
-    }
-
+    
     IEnumerator MoveHelicopter()
     {
         t = 0;
@@ -22,7 +17,7 @@ public class FlyingEnemy : Enemy {
         while (true)
         {
             t += Time.deltaTime / timeToReach;
-            transform.position = new Vector3(Mathf.Lerp(actualPosition.x, targetPosition.x, t),actualPosition.y, Mathf.Lerp(actualPosition.z, targetPosition.z, t));
+            transform.position = new Vector3(Mathf.Lerp(actualPosition.x, targetPosition.x, t),transform.position.y, Mathf.Lerp(actualPosition.z, targetPosition.z, t));
             yield return 0;
         }
     }
@@ -38,10 +33,17 @@ public class FlyingEnemy : Enemy {
         target = checkPoints[checkPoints.Length-1];
     }
 
-    protected override void OnEnable()
+    public override void Reset()
     {
-        base.OnEnable();
-        TakeCheckPoints();//esercizio chiamarlo solo una volta
+        health = maxHealth;
         StartCoroutine("MoveHelicopter");
     }
+
+    /*
+    protected override void OnEnable()
+    {
+        Reset();        
+    }
+    */
+    
 }
