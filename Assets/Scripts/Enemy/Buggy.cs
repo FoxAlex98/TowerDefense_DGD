@@ -15,4 +15,9 @@ public class Buggy : GroundEnemy {
         base.Move();
         //transform.Rotate(0, 0, speed * Time.deltaTime);
     }
+
+    public void DoSometing(string s)
+    {
+        Debug.Log(s);
+    }
 }

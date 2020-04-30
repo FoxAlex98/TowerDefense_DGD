@@ -11,10 +11,12 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected Transform target;
     [SerializeField] protected float strength, rotationSpeed;
     private int targetIndex;
+    private Animator animator;
 
     void Awake()
     {
         TakeCheckPoints();
+        animator = GetComponent<Animator>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -93,6 +95,7 @@ public class Enemy : MonoBehaviour {
     {
         health -= damage;
         Debug.Log("HIT " + health);
+        animator.Play("HIT");
         if (health <= 0)
         {
             CoinManager.instance.AddCoins(coins);

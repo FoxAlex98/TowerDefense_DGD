@@ -202,7 +202,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 345024644}
   timeToSpawn: 5
   yFlyin: 3
---- !u!1001 &191363815
+--- !u!1001 &97666345
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -241,11 +241,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 95385359925685020, guid: 4365f4bc7c7547a47b72079dec1a03ca,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7fcbf384e09161e4c830877694a3f9d0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4365f4bc7c7547a47b72079dec1a03ca, type: 2}
   m_IsPrefabParent: 0
@@ -858,7 +853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1725331993885558, guid: 6e5a7b401426e0d4892e513a82934188, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e5a7b401426e0d4892e513a82934188, type: 2}
