@@ -11,6 +11,7 @@ public class TargetEnemy : MonoBehaviour {
     }
     */
 
+    private Animator animator;
     private GameObject target, turret;
     private Quaternion rotation;
     //turret per assegnarlo come torretta, il figlio della base
@@ -32,6 +33,7 @@ public class TargetEnemy : MonoBehaviour {
     {
         turret = transform.GetChild(0).gameObject;
         rotation = turret.transform.rotation;
+        animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -40,6 +42,7 @@ public class TargetEnemy : MonoBehaviour {
         {
             target = other.gameObject;
             Debug.Log("Ho incontrato un nemico");
+            animator.SetBool("Spotted", true);
             GetComponent<MachineGun>().StartCoroutine("Shoot");
         }
     }
@@ -54,6 +57,7 @@ public class TargetEnemy : MonoBehaviour {
 
     private void Deactivate()
     {
+        animator.SetBool("Spotted", false);
         Debug.Log("Deactivate");
         target = null;
         turret.transform.rotation = rotation;
