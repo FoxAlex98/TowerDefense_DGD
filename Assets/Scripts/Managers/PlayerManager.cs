@@ -16,8 +16,10 @@ public class PlayerManager : MonoBehaviour {
     public void TakeDamage(float damage)
     {
         health -= damage;
+        SoundManager.instance.PlayPlayerAttack();
         if (health <= 0)
         {
+            SoundManager.instance.PlayDefeat();
             CoinManager.instance.SaveCoins();
             Time.timeScale = 0;
         }

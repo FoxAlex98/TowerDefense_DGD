@@ -27,8 +27,9 @@ public class ShootingTurret : MainTurret {
     {
         while (true)
         {
-            SpawnBullet();
             yield return new WaitForSeconds(timeToSpawn);
+            SpawnBullet();
+            SoundManager.instance.PlayTurretClip(tag);
         }
 
     }

@@ -98,6 +98,7 @@ public class Enemy : MonoBehaviour {
         animator.Play("HIT");
         if (health <= 0)
         {
+            SoundManager.instance.PlayEnemyDestroy();
             CoinManager.instance.AddCoins(coins);
             gameObject.SetActive(false);
             //Destroy(gameObject);
