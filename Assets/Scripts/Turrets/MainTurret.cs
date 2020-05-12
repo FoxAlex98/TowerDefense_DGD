@@ -6,4 +6,9 @@ public class MainTurret : MonoBehaviour {
 
 	public enum TurretType {bullet=1, rocket=5, healing=10}
     public TurretType myTurret;
+
+    public void SendInformation<T>(T param)
+    {
+        GuiManager.instance.ShowInformation(param);
+    }
 }

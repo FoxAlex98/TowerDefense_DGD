@@ -16,7 +16,7 @@ public class HitBullet : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
-            Debug.Log("Colpito");
+            //Debug.Log("Colpito");
             other.gameObject.GetComponent<Enemy>().Hit(damage);
             transform.gameObject.SetActive(false);
         }
@@ -24,7 +24,7 @@ public class HitBullet : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Debug.Log("Invisible");
+        //Debug.Log("Invisible");
         gameObject.SetActive(false);
     }
 }

@@ -18,6 +18,6 @@ public class Buggy : GroundEnemy {
 
     public void DoSometing(string s)
     {
-        Debug.Log(s);
+        //Debug.Log(s);
     }
 }

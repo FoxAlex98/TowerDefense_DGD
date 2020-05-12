@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour, IKillable<float> {
 
     protected float health;//vita corrente
     [SerializeField] protected int maxHealth;
@@ -91,11 +91,16 @@ public class Enemy : MonoBehaviour {
         Reset();        
     }
 
-    public void Hit(int damage)
+    public void Hit(float damage)
     {
         health -= damage;
         Debug.Log("HIT " + health);
         animator.Play("HIT");
+        Kill();
+    }
+
+    public void Kill()
+    {
         if (health <= 0)
         {
             SoundManager.instance.PlayEnemyDestroy();
@@ -120,4 +125,5 @@ public class Enemy : MonoBehaviour {
     {
         gameObject.SetActive(false);
     }
+    
 }
