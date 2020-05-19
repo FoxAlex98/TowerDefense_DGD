@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class Buggy : GroundEnemy {
 
-	
-	// Update is called once per frame
-	void Update () {
-        Move();
-	}
-
-    protected override void Move()
+    public void ResetHit()
     {
-        base.Move();
-        //transform.Rotate(0, 0, speed * Time.deltaTime);
+        animator.SetBool("Hit", false);
     }
 
     public void DoSometing(string s)

@@ -1,22 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.AI;
+
 
 public class Enemy : MonoBehaviour, IKillable<float> {
 
     protected float health;//vita corrente
     [SerializeField] protected int maxHealth;
-    [SerializeField] private int coins;
+    [SerializeField] protected int coins;
     [SerializeField] protected Transform[] checkPoints;
     [SerializeField] protected Transform target;
     [SerializeField] protected float strength, rotationSpeed;
-    private int targetIndex;
-    private Animator animator;
+    [SerializeField] protected Image lifeBar;
+    protected int targetIndex;
+    protected Animator animator;
 
     void Awake()
     {
         TakeCheckPoints();
         animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        lifeBar.transform.LookAt(Camera.main.transform.position);    
     }
 
     void OnTriggerEnter(Collider other)
@@ -83,7 +92,8 @@ public class Enemy : MonoBehaviour, IKillable<float> {
         health = maxHealth;
         target = checkPoints[0];
         targetIndex = 0;
-        StartCoroutine("RotateToTarget");
+        lifeBar.fillAmount = 1;
+        //StartCoroutine("RotateToTarget");
     }
 
     protected virtual void OnEnable()//viene chiamato automaticamente quando il GameObject viene attivato, ogni volta che viene attivato
@@ -94,6 +104,8 @@ public class Enemy : MonoBehaviour, IKillable<float> {
     public void Hit(float damage)
     {
         health -= damage;
+        float fill = health / maxHealth;
+        lifeBar.fillAmount = fill;
         Debug.Log("HIT " + health);
         animator.Play("HIT");
         Kill();
